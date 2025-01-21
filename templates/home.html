@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Template</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endif %} 
+        <form action="{{ url_for('predict_datapoint')}}" method="post" >
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="limit_bal">Limit_Bal</label>
+                        <input type="number" step="any" class="form-control" id="limit_bal" name="LIMIT_BAL"
+                            placeholder="Enter your limit balance" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" class="form-control" id="age" name="AGE" placeholder="Enter your age" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="gender_male" name="SEX" value=1 required>
+                            <label class="form-check-label" for="gender_male">Male</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="gender_female" name="SEX"
+                                value=0 required>
+                            <label class="form-check-label" for="gender_female">Female</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="education_grade_school">Education_Grade School</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="education_grade_school_true"
+                                name="EDUCATION_Grade_School" value=1 required>
+                            <label class="form-check-label" for="education_grade_school_true", required>True</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="education_grade_school_false"
+                                name="EDUCATION_Grade_School" value=0 required>
+                            <label class="form-check-label" for="education_grade_school_false", required>False</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Education_High_School">Education_High School</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="education_high_school_true"
+                                name="EDUCATION_High_School" value=1 required>
+                            <label class="form-check-label" for="education_high_school_true", required>True</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="education_high_school_false"
+                                name="EDUCATION_High_School" value=0 required>
+                            <label class="form-check-label" for="education_high_school_false", required>False</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="education_university">Education_University</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="education_university_true"
+                                name="EDUCATION_University" value=1 required>
+                            <label class="form-check-label" for="education_university_true", required>True</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="education_university_false"
+                                name="EDUCATION_University" value=0 required>
+                            <label class="form-check-label" for="education_university_false", required>False</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="education_others">Education_Others</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="education_others_true"
+                                name="EDUCATION_Others" value=1 required>
+                            <label class="form-check-label" for="education_others_true", required>True</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="education_others_false"
+                                name="EDUCATION_Others" value=0 required>
+                            <label class="form-check-label" for="education_others_false">False</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="marriage_married">Marriage_Married</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="marriage_married_true"
+                                name="MARRIAGE_Married" value=1 required>
+                            <label class="form-check-label" for="marriage_married_true">True</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="marriage_married_false"
+                                name="MARRIAGE_Married" value=0 required>
+                            <label class="form-check-label" for="marriage_married_false">False</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="marriage_single">Marriage_Single</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="marriage_single_true"
+                                name="MARRIAGE_Single" value=1 required>
+                            <label class="form-check-label" for="marriage_single_true">True</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="marriage_single_false"
+                                name="MARRIAGE_Single" value=0 required>
+                            <label class="form-check-label" for="marriage_single_false">False</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="marriage_others">Marriage_Others</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="marriage_others_true"
+                                name="MARRIAGE_Others" value=1 required>
+                            <label class="form-check-label" for="marriage_others_true">True</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="marriage_others_false"
+                                name="MARRIAGE_Others" value=0 required>
+                            <label class="form-check-label" for="marriage_others_false">False</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PAY_1">Repayment Status in Sept</label>
+                        <select class="form-control" id="PAY_1" name="PAY_1" required>
+                            <option>-1</option>
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PAY_2">Repayment Status in Aug</label>
+                        <select class="form-control" id="PAY_2" name="PAY_2" required>
+                            <option>-1</option>
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PAY_3">Repayment Status in Jul</label>
+                        <select class="form-control" id="PAY_3" name="PAY_3" required>
+                            <option>-1</option>
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PAY_4">Repayment Status in Jun</label>
+                        <select class="form-control" id="PAY_4" name="PAY_4" required>
+                            <option>-1</option>
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PAY_5">Repayment Status in May</label>
+                        <select class="form-control" id="PAY_5" name="PAY_5" required>
+                            <option>-1</option>
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PAY_6">Repayment Status in Apr</label>
+                        <select class="form-control" id="PAY_6" name="PAY_6" required>
+                            <option>-1</option>
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="BILL_AMT1">Bill_Amount_Sept</label>
+                        <input type="number" class="form-control" id="BILL_AMT1" name="BILL_AMT1"
+                            placeholder="Enter your bill amount for September" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="BILL_AMT2">Bill_Amount_Aug</label>
+                        <input type="number" class="form-control" id="BILL_AMT2" name="BILL_AMT2"
+                            placeholder="Enter your bill amount for August" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="BILL_AMT3">Bill_Amount_Jul</label>
+                        <input type="number" class="form-control" id="BILL_AMT3" name="BILL_AMT3"
+                            placeholder="Enter your bill amount for July" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="BILL_AMT4">Bill_Amount_Jun</label>
+                        <input type="number" class="form-control" id="BILL_AMT4" name="BILL_AMT4"
+                            placeholder="Enter your bill amount for June" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="BILL_AMT5">Bill_Amount_May</label>
+                        <input type="number" class="form-control" id="BILL_AMT5" name="BILL_AMT5"
+                            placeholder="Enter your bill amount for May" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="BILL_AMT6">Bill_Amount_Apr</label>
+                        <input type="number" class="form-control" id="BILL_AMT6" name="BILL_AMT6"
+                            placeholder="Enter your bill amount for April" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PAY_AMT1">Amount of Previous payment in Sept</label>
+                        <input type="number" class="form-control" id="PAY_AMT1" name="PAY_AMT1"
+                            placeholder="Enter your previous payment amount for September" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PAY_AMT2">Amount of Previous payment in Aug</label>
+                        <input type="number" class="form-control" id="PAY_AMT2" name="PAY_AMT2"
+                            placeholder="Enter your previous payment amount for August" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PAY_AMT3">Amount of Previous payment in Jul</label>
+                        <input type="number" class="form-control" id="PAY_AMT3" name="PAY_AMT3"
+                            placeholder="Enter your previous payment amount for July" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PAY_AMT4">Amount of Previous payment in Jun</label>
+                        <input type="number" class="form-control" id="PAY_AMT4" name="PAY_AMT4"
+                            placeholder="Enter your previous payment amount for June" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PAY_AMT5">Amount of Previous payment in May</label>
+                        <input type="number" class="form-control" id="PAY_AMT5" name="PAY_AMT5"
+                            placeholder="Enter your previous payment amount for May" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PAY_AMT6">Amount of Previous payment in Apr</label>
+                        <input type="number" class="form-control" id="PAY_AMT6" name="PAY_AMT6"
+                            placeholder="Enter your previous payment amount for April" required>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <input class="btn btn-primary" type="submit" value="Predict" required />
+            </div>
+        </form>
+        <h2 class="dark">
+            Outcome: {{prediction}}
+        </h2>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
